@@ -17,7 +17,20 @@ To use Weaver, you must enable the client in your iOS application and connect it
 ### Install ponyd
 
 - Prerequisites: Python 2, pip, virtualenv
-  
+
+Python 2  
+Since MAC OS has Python2 installed by default throughout the system, pip can be easily installed with the following command.
+
+install pip
+```sh
+$ sudo easy_install pip
+```
+
+install virtualenv, virtualenvwrapper
+```sh
+$ pip install virtualenv virtualenvwrapper
+```
+
 1. Create a temporary directory:
 ```sh
 $ mkdir ponyd && cd ponyd
