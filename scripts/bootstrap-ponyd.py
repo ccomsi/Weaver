@@ -862,8 +862,9 @@ def install_wheel(project_names, py_executable, search_dirs=None,
         import os
 
         import pip
+        import pip._internal
 
-        cert_data = pkgutil.get_data("pip._vendor.requests", "cacert.pem")
+        cert_data = pkgutil.get_data("requests", "cacert.pem")
         if cert_data is not None:
             cert_file = tempfile.NamedTemporaryFile(delete=False)
             cert_file.write(cert_data)
@@ -877,7 +878,7 @@ def install_wheel(project_names, py_executable, search_dirs=None,
                 args += ["--cert", cert_file.name]
             args += sys.argv[1:]
 
-            sys.exit(pip.main(args))
+            sys.exit(pip._internal.main(args))
         finally:
             if cert_file is not None:
                 os.remove(cert_file.name)
